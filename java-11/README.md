@@ -12,9 +12,6 @@ do projeto Java 8, agora adaptado para usar o que ficou disponível no Java 11.
 | `ProcessadorPedidos.java` | tipos explícitos → `var` | inferência de variável local (JEP 286, do Java 10) |
 | `Main.java` | `Arrays.asList()` → `List.of()` | métodos de fábrica de coleções imutáveis (Java 9) |
 
-O resto do projeto (`Produto`, `ItemPedido`, `Pedido`, `TipoCliente`,
-`CalculadoraDesconto`, `ResultadoPedido`, `GeradorRelatorio`) continua
-**idêntico** ao Java 8.
 
 ## Features de Java 9/10/11 usadas de propósito
 
@@ -87,15 +84,3 @@ Pedido #2 processado pela thread pool-1-thread-2
 ...
 Tempo total de processamento: ~500ms
 ```
-
-## Checklist rápido para revisar seu código
-
-- [ ] `CotacaoService` não importa mais `java.net.HttpURLConnection`
-- [ ] `CotacaoService` importa `java.net.http.HttpClient`,
-  `HttpRequest`, `HttpResponse`
-- [ ] `ProcessadorPedidos` usa `var pool = ...` e
-  `var futuros = new ArrayList<Future<ResultadoPedido>>()`
-  (repare que o tipo genérico precisa ficar explícito do lado
-  direito quando se usa `var`)
-- [ ] `Main` usa `List.of(...)` em vez de `Arrays.asList(...)` para
-  montar os itens de cada pedido

@@ -92,15 +92,3 @@ Repare que o tempo total fica próximo de **500ms**, e não `4 x 500ms =
 2000ms` — isso é a concorrência em ação: os 4 pedidos são processados
 ao mesmo tempo, cada um numa thread do pool, em vez de um esperar o
 outro terminar.
-
-## Próximos passos sugeridos
-
-- Reescrever este mesmo projeto em **Java 11**: trocar `HttpURLConnection`
-  pelo novo `java.net.http.HttpClient`, usar `var` nas variáveis locais.
-- Depois em **Java 17**: transformar `Produto`, `ItemPedido`, `Pedido`
-  e `ResultadoPedido` em `record`.
-- Depois em **Java 21**: trocar o pool fixo por
-  `Executors.newVirtualThreadPerTaskExecutor()` e usar pattern matching
-  de `switch` em `CalculadoraDesconto`.
-- Por fim, em **Java 25**: experimentar `void main()` sem classe e
-  `import module`.
